@@ -1,0 +1,158 @@
+@charset "utf-8";
+/* CSS Document */
+
+.estilo1 {
+	font-family: Myriadproregular;
+    font-size:10px;
+	color:#999999;
+	text-align: left;
+}
+
+.estilo2 {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:16px;
+	color:#243F24;
+	text-align: center;
+	font-weight: bold;
+}
+
+.estilo3 {
+	font-family: AGENCYB;
+    font-size:14px;
+	color:#ffffff;
+	text-align: left;
+}
+
+.estilo4 {
+	font-family:ERASMD;
+    font-size:23px;
+	color:#000;
+	text-align: left;
+}
+
+.Estilo5{
+	font-family: Arial, Verdana;
+	font-size:10pt;
+	color: #808080;
+	text-align: justify;
+	}
+	
+	.Estilo6{
+	font-family: Arial, Verdana;
+	font-size:12pt;
+	color: #ff6515;
+	text-align: justify;
+	font-weight:bold;
+	}
+	
+	.Estilo7{
+	font-family: Arial, Verdana;
+	font-size:10pt;
+	color: #ff6515;
+	text-align: justify;
+	font-weight:bold;
+	}
+
+.Estilo8{
+	font-family: Arial, Verdana;
+	font-size:8pt;
+	color: #333333;
+	text-align: left;
+	}
+	
+.Estilo9{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:8pt;
+	color:#FFFFFF;
+	text-align: right;
+}
+
+.Estilo10{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:8pt;
+	color:#ffffff;
+	text-align: left;
+}
+.Estilo11{
+	font-family: Arial;
+	font-size:15pt;
+	color: #ffffff;
+	text-align: justify;
+	}
+	
+.Estilo12{
+	font-family: Arial;
+	font-size:10pt;
+	color: #7e7f7f;
+	text-align: justify;
+	}
+
+.Visitantes {
+	font-family: Verdana, Geneva, sans-serif;
+    font-size:10px;
+	color:#808080;
+	text-align: left;
+	margin-left: 20px;
+	
+} 
+
+
+.Estilo13{
+	font-family: Arial;
+    font-size:10pt;
+	color:#5d5e5e;
+	text-align: left;
+	margin-top: 5px;
+	
+} 
+
+.estilo14 {
+	font-family:ERASMD;
+    font-size:12pt;
+	color:#000;
+	text-align: left;
+}
+
+.Estilo15{
+	font-family: Arial;
+	font-size:10pt;
+	color: #333333;
+	text-align: left;
+	font-weight:bold;
+	}
+.Estilo16{
+	font-family: Arial, Verdana;
+	font-size:8pt;
+	color: #666666;
+	text-align: justify;
+	font-weight:bold;
+}
+
+.Estilo17{
+	font-family: Arial, Verdana;
+	font-size:10pt;
+	color: #666666;
+	text-align: justify;
+	font-weight:bold;
+}
+
+@font-face{
+	src: url(../fuentes/AGENCYB.TTF);
+	src:url(../fuentes/AGENCYB.eot);
+	src:url(../fuentes/AGENCYB.woff);
+	font-family:AGENCYB;
+}
+
+@font-face{
+	src: url(../fuentes/MyriadPro-Regular.ttf);
+	src: url(../fuentes/MyriadPro-Regular.eot);
+	src: url(../fuentes/MyriadPro-Regular.woff);
+	font-family:Myriadproregular;
+}
+
+@font-face{
+	src: url(../fuentes/ERASMD.TTF);
+	src: url(../fuentes/ERASMD.eot);
+	src: url(../fuentes/ERASMD.woff);
+	font-family:ERASMD;
+}

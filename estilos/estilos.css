@@ -1,0 +1,665 @@
+@charset "utf-8";
+
+/* Medios fluidos sencillos
+   Nota: Los medios fluidos exigen la eliminación de los atributos de altura y anchura de los medios del código HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+img,
+object,
+embed,
+video {
+    max-width: 100%;
+}
+
+
+/* IE 6 no admite max-width (anchura máxima), por lo que usa de manera predeterminada una anchura del 100% */
+
+.ie6 img {
+    width: 100%;
+}
+
+
+/*
+	Propiedades de cuadrícula fluida de Dreamweaver
+	----------------------------------
+	dw-num-cols-mobile:		5;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	10;
+	dw-gutter-percentage:	25;
+	
+	Inspiración obtenida de "Responsive Web Design" de Ethan Marcotte 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	y Golden Grid System de Joni Korpi
+	http://goldengridsystem.com/
+*/
+
+
+/* Diseño móvil: 480 px e inferior. */
+
+.gridContainer {
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+}
+
+#MarcoContenedor {
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+}
+
+#contenedorsuperior {
+    height: 100px;
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#logo {
+    background-color: #3498db;
+    height: 100px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#cuadrocont {
+    background-color: #3498db;
+    height: 100px;
+    width: 100%;
+    float: right;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#textoTitulo {
+    height: 100px;
+    width: 50%;
+    float: right;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#logueo {
+    height: 45px;
+    width: 100%;
+    float: right;
+    margin: 2% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#contenedormedio {
+    height: 223px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#izquierda {
+    height: 150px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#contenedormenu {
+    height: auto;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#derecha {
+    height: 150px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#titulocont {
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 42px;
+    width: 100%;
+    float: right;
+    margin: 1% 5% 0% 0%;
+    padding: 0% 4% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#titulonoticia {
+    height: 42px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 1%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#contcont {
+    border: 2px solid black;
+    border-radius: 5px;
+    height: auto;
+    width: 100%;
+    float: right;
+    margin: 0% 5% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#btnCrear {
+    height: auto;
+    width: 90%;
+    float: right;
+    margin: 0% 5% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#contenedorfooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#contenedorfff {
+    height: 70px;
+    width: 100%;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    position: relative;
+    display: block;
+}
+
+#datosp {
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    height: 40px;
+    width: 30%;
+    float: right;
+    position: relative;
+    display: block;
+}
+
+#datospersonales {
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    height: 60px;
+    width: 70%;
+    float: left;
+    position: relative;
+    display: block;
+}
+
+
+/* Diseño tableta: de 481 px a 768 px. Hereda estilos de: Diseño móvil. */
+
+@media only screen and (min-width: 481px) {
+    .gridContainer {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+    }
+    #MarcoContenedor {
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        display: block;
+    }
+    #contenedorsuperior {
+        height: 100px;
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #logo {
+        background-color: #3498db;
+        height: 100px;
+        width: 30%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #cuadrocont {
+        background-color: #3498db;
+        height: 100px;
+        width: 70%;
+        float: right;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #textoTitulo {
+        height: 100px;
+        width: 50%;
+        float: right;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #logueo {
+        height: 45px;
+        width: 30%;
+        float: right;
+        margin: 2% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedormedio {
+        height: 223px;
+        width: 100%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #izquierda {
+        height: 150px;
+        width: 30%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedormenu {
+        height: auto;
+        width: 95%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #derecha {
+        height: 150px;
+        width: 70%;
+        float: right;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #titulocont {
+        border: 2px solid black;
+        border-radius: 5px;
+        height: 42px;
+        width: 90%;
+        float: right;
+        margin: 1% 5% 0% 0%;
+        padding: 0% 4% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #titulonoticia {
+        height: 42px;
+        width: 30%;
+        float: left;
+        margin: 0% 0% 0% 1%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contcont {
+        border: 2px solid black;
+        border-radius: 5px;
+        height: auto;
+        width: 90%;
+        float: right;
+        margin: 0% 5% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #btnCrear {
+        height: auto;
+        width: 90%;
+        float: right;
+        margin: 0% 5% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedorfooter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #contenedorfff {
+        height: 70px;
+        width: 100%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #datosp {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        height: 40px;
+        width: 30%;
+        float: right;
+        position: relative;
+        display: block;
+    }
+    #datospersonales {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        height: 60px;
+        width: 70%;
+        float: left;
+        position: relative;
+        display: block;
+    }
+}
+
+
+/* Diseño escritorio: de 769 px hasta un máximo de 1232 px.  Hereda estilos de: Diseño móvil y Diseño tableta. */
+
+@media only screen and (min-width: 769px) {
+    .gridContainer {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+    }
+    #MarcoContenedor {
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: block;
+    }
+    #contenedorsuperior {
+        height: 100px;
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #logo {
+        background-color: #3498db;
+        height: 100px;
+        width: 20%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #cuadrocont {
+        background-color: #3498db;
+        height: 100px;
+        width: 80%;
+        float: right;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #textoTitulo {
+        height: 45px;
+        width: 70%;
+        float: left;
+        margin: 2% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #logueo {
+        height: 45px;
+        width: 30%;
+        float: right;
+        margin: 2% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedormedio {
+        height: 223px;
+        width: 100%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedormenu {
+        height: auto;
+        width: 95%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #izquierda {
+        height: 150px;
+        width: 15%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #derecha {
+        height: 150px;
+        width: 84%;
+        float: right;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #titulocont {
+        border: 2px solid black;
+        border-radius: 5px;
+        height: 42px;
+        width: 90%;
+        float: right;
+        margin: 1% 5% 0% 0%;
+        padding: 0% 4% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #titulonoticia {
+        height: 42px;
+        width: 30%;
+        float: left;
+        margin: 0% 0% 0% 1%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contcont {
+        border: 2px solid black;
+        border-radius: 5px;
+        height: auto;
+        width: 90%;
+        float: right;
+        margin: 0% 5% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #btnCrear {
+        height: 43px;
+        width: 7%;
+        float: right;
+        margin: 1.6% 5% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #contenedorfooter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #contenedorfff {
+        height: 70px;
+        width: 100%;
+        float: left;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        position: relative;
+        display: block;
+    }
+    #datosp {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        height: 40px;
+        width: 30%;
+        float: right;
+        position: relative;
+        display: block;
+    }
+    #datospersonales {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        height: 60px;
+        width: 70%;
+        float: left;
+        position: relative;
+        display: block;
+    }
+}
+
+.edit-link,
+.drop-link {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+/* Tooltip para "Editar" */
+
+.edit-link::after {
+    content: "Editar";
+    position: absolute;
+    bottom: 30px;
+    /* Coloca el tooltip debajo del icono */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    /* Inicialmente invisible */
+    visibility: hidden;
+    /* Inicialmente invisible */
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+
+/* Mostrar el tooltip de "Editar" cuando pasa el ratón sobre el ícono */
+
+.edit-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Tooltip para "Eliminar" */
+
+.drop-link::after {
+    content: "Eliminar";
+    position: absolute;
+    bottom: 30px;
+    /* Coloca el tooltip debajo del icono */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    /* Inicialmente invisible */
+    visibility: hidden;
+    /* Inicialmente invisible */
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+
+/* Mostrar el tooltip de "Eliminar" cuando pasa el ratón sobre el ícono */
+
+.drop-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
