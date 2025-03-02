@@ -55,41 +55,41 @@ class empleados
 
     public function Registrar(empleados $empleado)
     {
-        // Verificar si el email ya está registrado
+       
         $sqlempl1 = "SELECT idempleado FROM empleados WHERE email = '" . $empleado->email . "'";
         $resempl1 = $this->db->query($sqlempl1);
         $itemclientesg1 = $this->db->fetch_row($resempl1);
     
-        // Si el email ya está registrado, mostrar un mensaje
+     
         if ($itemclientesg1 > 0) {
             echo "El email ya está registrado. Por favor ingrese un email diferente.";
-            return;  // Detiene la ejecución si el email ya existe
+            return;  
         }
     
-        // Insertar el empleado
+     
         $sqlclientesg = "INSERT INTO empleados (nombre, email, sexo, area_id, boletin, descripcion, estado)
                          VALUES ('" . $empleado->nombre . "','" . $empleado->email . "','" . $empleado->sexo . "','" . $empleado->areaId . "'
                                  ,'" . $empleado->boletin . "','" . $empleado->descripcion . "','" . $empleado->estado . "')";
         $resclientesg = $this->db->query($sqlclientesg);
     
-        // Verificar si el empleado fue registrado correctamente
+        
         if ($resclientesg) {
-            // Obtener el ID del nuevo empleado
+        
             $sqlempl = "SELECT idempleado FROM empleados WHERE email = '" . $empleado->email . "'";
             $resempl = $this->db->query($sqlempl);
     
-            // Si encontramos el id del empleado
+           
             if ($itemclientesg = $this->db->fetch_row($resempl)) {
                 $empleado->id = $itemclientesg['idempleado'];
             }
     
-            // Si hay un rol asignado, insertamos en la tabla de empleado_rol
+           
             if (!empty($empleado->rol)) {
                 $sqlemrg = "INSERT INTO empleado_rol (empleado_id, rol_id)
                             VALUES (" . $empleado->id . "," . $empleado->rol . ")";
                 $resrolg = $this->db->query($sqlemrg);
     
-                // Verificar si el rol fue asignado correctamente
+              
                 if ($resrolg) {
                     echo "Rol asignado correctamente";
                 } else {
@@ -99,10 +99,10 @@ class empleados
                 echo "No se ha asignado un rol";
             }
     
-            // Confirmar que el empleado fue registrado correctamente
+          
             echo "Empleado registrado de manera correcta";
         } else {
-            // Si hubo un error al insertar el empleado
+           
             echo "Empleado no registrado de manera correcta";
         }
     }
