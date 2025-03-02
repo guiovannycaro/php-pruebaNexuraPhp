@@ -39,6 +39,16 @@ class areas
     public function Registrar(areas $area)
     {
     
+        $sqlempl1 = "SELECT idarea FROM areas WHERE nombre = '" . $rol->nombre . "'";
+        $resempl1 = $this->db->query($sqlempl1);
+        $itemclientesg1 = $this->db->fetch_row($resempl1);
+    
+      
+        if ($itemclientesg1 > 0) {
+            echo "El area ya está registrado. Por favor ingrese un area diferente.";
+            return;  
+        }
+
         $sqlclientesg = "INSERT INTO areas (nombre, estado)
                           VALUES ('" . $area->nombre . "','" . $area->estado . "')";
         $resclientesg = $this->db->query($sqlclientesg);

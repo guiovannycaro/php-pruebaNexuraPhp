@@ -38,6 +38,17 @@ class roles
 
     public function Registrar(roles $rol)
     {
+
+    
+         $sqlempl1 = "SELECT idrol FROM roles WHERE nombre = '" . $rol->nombre . "'";
+         $resempl1 = $this->db->query($sqlempl1);
+         $itemclientesg1 = $this->db->fetch_row($resempl1);
+     
+       
+         if ($itemclientesg1 > 0) {
+             echo "El rol ya está registrado. Por favor ingrese un rol diferente.";
+             return;  
+         }
     
         $sqlclientesg = "INSERT INTO roles (nombre, estado)
                           VALUES ('" . $rol->nombre . "','" . $rol->estado . "')";
