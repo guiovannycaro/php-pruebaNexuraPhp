@@ -59,8 +59,10 @@ class empleados
         $sqlclientesg = "INSERT INTO empleados (nombre, email, sexo, area_id, boletin, descripcion, estado)
                           VALUES ('" . $empleado->nombre . "','" . $empleado->email . "','" . $empleado->sexo . "','" . $empleado->areaId . "'
                          ,'" . $empleado->boletin . "','" . $empleado->descripcion . "','" . $empleado->estado . "')";
-        $resclientesg = $this->db->query($sqlclientesg);
-    
+      
+     
+                         $resclientesg = $this->db->query($sqlclientesg);
+       
 
         if ($resclientesg) {
      

@@ -32,6 +32,8 @@ class empleadosController{
     }
     
     public function Guardar(){
+
+      
         $empleado = new empleados();
         
        

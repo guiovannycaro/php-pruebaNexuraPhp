@@ -304,10 +304,10 @@ $('.dataTables_length').addClass('bs-select');
 			   <label class="control-label" for="inputPatient">Roles</label>
 			   <div class="field desc">
 			     <div style="width: 90%;height: auto;margin: 0% 0% 0% 5%">
-           <?php foreach($this->rol->Listar()  as $ro): ?>
-              <input class="form-check-input" type="checkbox" value="<?php echo $ro->id; ?>" id="Rol" name="Rol">
-              <?php echo $ro->nombre; ?></br>
-              <?php endforeach; ?>  
+           <?php foreach($this->rol->Listar() as $ro): ?>
+    <input class="form-check-input" type="checkbox" value="<?php echo $ro->id; ?>" id="Rol_<?php echo $ro->id; ?>" name="Rol[]">
+    <?php echo $ro->nombre; ?><br>
+<?php endforeach; ?>
            </div>        	
 			  </div>
      	 </div>
@@ -488,6 +488,7 @@ $('.dataTables_length').addClass('bs-select');
         var area = $('#Area').val();
         var descripcion = $('#Descripcion').val();
         var boletin = $('#Boletin').prop('checked') ? 1 : 2;
+
         var selectedRoles = [];
         $('input[name="Rol[]"]:checked').each(function() {
             selectedRoles.push($(this).val());  
@@ -536,7 +537,7 @@ $('.dataTables_length').addClass('bs-select');
 
            if (selectedRoles.length === 0) {
              alertify.success("Por favor, seleccione al menos un rol.");
-         return false;  
+         return ;  
          } 
 
 
@@ -547,7 +548,7 @@ $('.dataTables_length').addClass('bs-select');
       
        var cadena=  "nombre=" + nombre + "&email=" + email
         + "&sexo=" + sexo + "&area=" + area+ "&descripcion=" 
-        + descripcion+ "&boletin=" + boletin + "&rol=" + rol + "&estado=" + estado;
+        + descripcion+ "&boletin=" + boletin + "&rol=" + selectedRoles + "&estado=" + estado;
 
 
       $.ajax({
