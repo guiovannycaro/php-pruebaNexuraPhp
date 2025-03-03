@@ -132,6 +132,8 @@ Haga lo siguiente si usa su compilación personalizada de modernizr (http://www.
       </th>
       <th class="th-sm"><i class="fa-solid fa-audio-description"></i> Descripcion
       </th>
+      <th class="th-sm"><i  class="fa-solid fa-address-book"></i> Rol
+      </th>
       <th class="th-sm"><i class="fa-solid fa-location-arrow"></i> Acciones
       </th>
     </tr>
@@ -161,7 +163,7 @@ Haga lo siguiente si usa su compilación personalizada de modernizr (http://www.
       
       ?></td>
       <td data_id="<?php echo  $r->descripcion;?>"><?php echo $r->descripcion; ?></td>
-    
+      <td data_id="<?php echo  $r->nomrol;?>"><?php echo $r->nomrol; ?></td>
       <td>   
       <button  data-toggle="modal" data-target="#EditarClienteModal"
        onclick="agregardatos('<?php echo $datos; ?>')" name="edit" class="btn btn-primary btn-xs edit edit-link"><i class="fa-solid fa-pen"></i></button>  
@@ -545,7 +547,7 @@ $('.dataTables_length').addClass('bs-select');
             alertify.success("Por favor, seleccione un estado.");
             return false;  
           } 
-      
+ 
        var cadena=  "nombre=" + nombre + "&email=" + email
         + "&sexo=" + sexo + "&area=" + area+ "&descripcion=" 
         + descripcion+ "&boletin=" + boletin + "&rol=" + selectedRoles + "&estado=" + estado;
@@ -558,7 +560,7 @@ $('.dataTables_length').addClass('bs-select');
 							success: function(data)
 							{
                 alertify.success(data);
-                  window.location.href = 'empleado.php';
+                 
 							}, error: function(xhr, status, error) {
                 alertify.success("Error en la solicitud AJAX: " + error);
                     window.location.href = 'empleado.php';

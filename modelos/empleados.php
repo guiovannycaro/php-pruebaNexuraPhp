@@ -12,6 +12,7 @@ class empleados
     public $descripcion;    
     public $estado;
     public $rol;
+    public $nomrol;
     private $db;
 
     public function __construct() {
@@ -24,7 +25,7 @@ class empleados
             $sqlclientesg = 
             "SELECT empleados.idempleado,empleados.nombre,empleados.email,
                     empleados.sexo,areas.nombre as narea,empleados.boletin
-	               ,empleados.descripcion,roles.idrol as rol,empleados.estado,areas.idarea as area
+	               ,empleados.descripcion,roles.idrol as rol,roles.nombre as nomrol,empleados.estado,areas.idarea as area
 	         FROM empleado_rol
 	         join empleados on empleado_rol.empleado_id = empleados.idempleado
 	         join areas on empleados.area_id =areas.idarea
@@ -42,6 +43,7 @@ class empleados
                 $empleado->boletin = $itemclientesg['boletin'];
                 $empleado->descripcion = $itemclientesg['descripcion'];
                 $empleado->rol = $itemclientesg['rol'];
+                $empleado->nomrol=$itemclientesg['nomrol'];
                 $empleado->estado = $itemclientesg['estado'];
                 $empleado->aname = $itemclientesg['area'];
                 array_push($clientesg, $empleado); // Push the object instead of the array
@@ -83,13 +85,19 @@ class empleados
                 $empleado->id = $itemclientesg['idempleado'];
             }
     
-           
+   
             if (!empty($empleado->rol)) {
+
+                $rolEmpleado = explode(',',$empleado->rol);
+                for($i=0;$i<count($rolEmpleado);$i++){
                 $sqlemrg = "INSERT INTO empleado_rol (empleado_id, rol_id)
-                            VALUES (" . $empleado->id . "," . $empleado->rol . ")";
+                            VALUES (" . $empleado->id . "," . $rolEmpleado[$i] . ")";
                 $resrolg = $this->db->query($sqlemrg);
-    
-              
+
+      
+
+                }
+                
                 if ($resrolg) {
                     echo "Rol asignado correctamente";
                 } else {
