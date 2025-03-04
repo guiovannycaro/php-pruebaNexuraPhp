@@ -59,7 +59,7 @@ class empleadosController{
         $area = $_POST['area'];
         $descripcion = $_POST['descripcion'];
         $boletin = $_POST['boletin'];
-        $roles = isset($_POST['roles']) ? $_POST['roles'] : ''; // Los roles están separados por comas
+        $roles = $_POST['roles'];
         $estado = $_POST['estado'];
 
        

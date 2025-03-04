@@ -22,14 +22,36 @@ class empleados
     public function Listar() {
         try {
             $clientesg = array();
-            $sqlclientesg = 
-            "SELECT empleados.idempleado,empleados.nombre,empleados.email,
-                    empleados.sexo,areas.nombre as narea,empleados.boletin
-	               ,empleados.descripcion,roles.idrol as rol,roles.nombre as nomrol,empleados.estado,areas.idarea as area
-	         FROM empleado_rol
-	         join empleados on empleado_rol.empleado_id = empleados.idempleado
-	         join areas on empleados.area_id =areas.idarea
-	         join roles on empleado_rol.rol_id = roles.idrol";
+            $sqlclientesg = "
+			SELECT 
+                empleados.idempleado,
+                empleados.nombre,
+                empleados.email,
+                empleados.sexo,
+                areas.nombre AS narea,
+                empleados.boletin,
+                empleados.descripcion,
+                STRING_AGG(roles.idrol::TEXT, ',' ORDER BY roles.idrol) AS rol,  -- Concatenamos los IDs de roles ordenados
+                STRING_AGG(roles.nombre, ',' ORDER BY roles.nombre) AS nomrol,  -- Concatenamos los nombres de roles ordenados
+                empleados.estado,
+                areas.idarea AS area
+            FROM  empleado_rol
+                JOIN  empleados ON empleado_rol.empleado_id = empleados.idempleado
+                JOIN areas ON empleados.area_id = areas.idarea
+                JOIN  roles ON empleado_rol.rol_id = roles.idrol
+            GROUP BY 
+                empleados.idempleado, 
+                empleados.nombre, 
+                empleados.email, 
+                empleados.sexo, 
+                areas.nombre, 
+                empleados.boletin, 
+                empleados.descripcion, 
+                empleados.estado, 
+                areas.idarea
+             ORDER BY 
+                empleados.nombre ";
+             
             $resclientesg = $this->db->query($sqlclientesg);
     
             // Iterate over the result set and create objects of class empleados
@@ -49,56 +71,55 @@ class empleados
                 array_push($clientesg, $empleado); // Push the object instead of the array
             }
     
-            return $clientesg;
-        } catch (Exception $e) {
+             return $clientesg;
+         } catch (Exception $e) {
             die("Error: " . $e->getMessage());
         }
     }
 
-    public function Registrar(empleados $empleado)
-    {
+   public function Registrar(empleados $empleado)
+   {
        
         $sqlempl1 = "SELECT idempleado FROM empleados WHERE email = '" . $empleado->email . "'";
         $resempl1 = $this->db->query($sqlempl1);
         $itemclientesg1 = $this->db->fetch_row($resempl1);
-    
-     
+
         if ($itemclientesg1 > 0) {
             echo "El email ya está registrado. Por favor ingrese un email diferente.";
             return;  
         }
-    
-     
+       
         $sqlclientesg = "INSERT INTO empleados (nombre, email, sexo, area_id, boletin, descripcion, estado)
                          VALUES ('" . $empleado->nombre . "','" . $empleado->email . "','" . $empleado->sexo . "','" . $empleado->areaId . "'
                                  ,'" . $empleado->boletin . "','" . $empleado->descripcion . "','" . $empleado->estado . "')";
         $resclientesg = $this->db->query($sqlclientesg);
-    
-        
-        if ($resclientesg) {
+      
+        if ($resclientesg) 
+		{
         
             $sqlempl = "SELECT idempleado FROM empleados WHERE email = '" . $empleado->email . "'";
             $resempl = $this->db->query($sqlempl);
     
            
-            if ($itemclientesg = $this->db->fetch_row($resempl)) {
+            if ($itemclientesg = $this->db->fetch_row($resempl)) 
+			{
                 $empleado->id = $itemclientesg['idempleado'];
             }
     
    
-            if (!empty($empleado->rol)) {
+            if (!empty($empleado->rol)) 
+			{
 
                 $rolEmpleado = explode(',',$empleado->rol);
-                for($i=0;$i<count($rolEmpleado);$i++){
-                $sqlemrg = "INSERT INTO empleado_rol (empleado_id, rol_id)
+                for($i=0;$i<count($rolEmpleado);$i++)
+				{
+                    $sqlemrg = "INSERT INTO empleado_rol (empleado_id, rol_id)
                             VALUES (" . $empleado->id . "," . $rolEmpleado[$i] . ")";
-                $resrolg = $this->db->query($sqlemrg);
-
-      
-
+                    $resrolg = $this->db->query($sqlemrg);
                 }
                 
-                if ($resrolg) {
+                if ($resrolg) 
+				{
                     echo "Rol asignado correctamente";
                 } else {
                     echo "Error al asignar rol";
@@ -113,42 +134,55 @@ class empleados
            
             echo "Empleado no registrado de manera correcta";
         }
-    }
+  }
 
     public function Actualizar(empleados $empleado)
-	{
+    {
+    
         $dato = false;
-   
-       $i_solicitud = array();
-
-       $sqlempg = "UPDATE empleados
-                   SET nombre ='".$empleado->nombre."',
-                       email ='".$empleado->email."',
-                       sexo ='".$empleado->sexo."',
-                       area_id =".$empleado->areaId.",
-                       boletin =".$empleado->boletin.",
-                       descripcion ='".$empleado->descripcion."',
-                    estado ='".$empleado->estado."'
-                   WHERE 
-                   idempleado = ".$empleado->id."";
+        $sqlempg = "UPDATE empleados
+                    SET nombre = '".$empleado->nombre."',
+                        email = '".$empleado->email."',
+                        sexo = '".$empleado->sexo."',
+                        area_id = ".$empleado->areaId.",
+                        boletin = ".$empleado->boletin.",
+                        descripcion = '".$empleado->descripcion."',
+                        estado = '".$empleado->estado."'
+                    WHERE idempleado = ".$empleado->id."";
                     
-            $resclientesg = $this->db->query($sqlempg);
-
-            if($resclientesg){
- 
-                echo "Cliente actualizado de manera correcta";
-            }else{
-                echo "Cliente no actualizado de manera correcta";
-             } 
-
-          
+        $resclientesg = $this->db->query($sqlempg);
+        $this->actualizarRol($empleado->id,$empleado->rol);
+      
+        if ($resclientesg) {
+            echo "Cliente actualizado de manera correcta.";
+            $dato = true; 
+        } else {
+            echo "Cliente no actualizado de manera correcta.";
+            return false; 
+        }
+		
+        return $dato; 
     }
 
 
+ public function actualizarRol($empleadoID,$rol){
 
+    $i_solicitud = array();
+    $sqlg ="DELETE FROM empleado_rol WHERE empleado_id = ".$empleadoID."";
+    $resg = $this->db->query($sqlg);
 
-public function Eliminar($empleado)
-{
+    $rolEmpleado = explode(',',$rol);
+    for($i=0;$i<count($rolEmpleado);$i++)
+	{
+       $sqlemrg = "INSERT INTO empleado_rol (empleado_id, rol_id)
+                VALUES (" . $empleadoID . "," . $rolEmpleado[$i] . ")";
+       $resrolg = $this->db->query($sqlemrg);
+    }
+
+ }
+
+ public function Eliminar($empleado)
+ {
   
 
    $i_solicitud = array();
@@ -163,14 +197,15 @@ public function Eliminar($empleado)
    $resclientesg = $this->db->query($sqlempg);
 
 
-   if($resclientesg){
+   if($resclientesg)
+   {
 
        echo "Cliente eliminado de manera correcta";
    }else{
        echo "Cliente no eliminado de manera correcta";
-    } 
+   } 
 
-}
+ }
 }
 
 
